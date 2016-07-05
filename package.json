@@ -4,7 +4,7 @@
   "description": "React Starter Kit",
   "scripts": {
     "start": "webpack-dev-server",
-    "lint": "eslint src"
+    "lint": "eslint --fix src"
   },
   "repository": {
     "type": "git",
