@@ -4,9 +4,9 @@ import TodoList from './TodoList';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case 'SHOW_COMPLETED':
+    case 'completed':
       return todos.filter(t => t.completed);
-    case 'SHOW_ACTIVE':
+    case 'active':
       return todos.filter(t => !t.completed);
     default:
       return todos;
@@ -27,13 +27,14 @@ class VisibleTodoList extends Component {
 
   render() {
     const { store } = this.context;
+    const { filter } = this.props;
     const state = store.getState();
 
     return (
       <TodoList
         todos={getVisibleTodos(
           state.todos,
-          state.visibilityFilter
+          filter
         )}
         onTodoClick={id =>
           store.dispatch(toggleTodo(id))
