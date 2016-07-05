@@ -1,5 +1,5 @@
 export default {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: './src/index',
   output: {
     path: './dist',
