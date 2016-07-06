@@ -1,17 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { toggleTodo } from '../actions';
 import TodoList from './TodoList';
-
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case 'completed':
-      return todos.filter(t => t.completed);
-    case 'active':
-      return todos.filter(t => !t.completed);
-    default:
-      return todos;
-  }
-};
+import { getVisibleTodos } from '../reducers';
 
 class VisibleTodoList extends Component {
   componentDidMount() {
@@ -33,7 +23,7 @@ class VisibleTodoList extends Component {
     return (
       <TodoList
         todos={getVisibleTodos(
-          state.todos,
+          state,
           filter
         )}
         onTodoClick={id =>
